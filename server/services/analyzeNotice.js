@@ -492,8 +492,15 @@ export async function analyzeNotice(pages) {
   }
 
   if (response.status !== "completed" || !response.output_text) {
-    throw new AnalysisServiceError(502, "The analysis service returned an incomplete result. Please try again.");
-  }
+  console.error("Incomplete OpenAI response:", JSON.stringify({
+    status: response.status,
+    incompleteDetails: response.incomplete_details ?? null,
+    error: response.error ?? null,
+    usage: response.usage ?? null
+  }));
+
+  throw new AnalysisServiceError(502, "The analysis service returned an incomplete result. Please try again.");
+}
 
   let parsedAnalysis;
 
