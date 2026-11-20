@@ -499,7 +499,17 @@ export async function analyzeNotice(pages) {
     usage: response.usage ?? null
   }));
 
-  throw new AnalysisServiceError(502, "The analysis service returned an incomplete result. Please try again.");
+  throw new AnalysisServiceError(
+  502,
+  "The analysis service returned an incomplete result. Please try again.",
+  {
+    errorClass: "IncompleteResponse",
+    responseStatus: response.status ?? "unknown",
+    incompleteReason: response.incomplete_details?.reason ?? null,
+    outputTokens: response.usage?.output_tokens ?? null,
+    totalTokens: response.usage?.total_tokens ?? null
+  }
+);
 }
 
   let parsedAnalysis;

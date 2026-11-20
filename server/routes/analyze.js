@@ -114,17 +114,25 @@ router.post("/analyze", async (request, response) => {
     const providerStatus = safeDiagnostics.providerStatus
       ?? (Number.isInteger(error?.status) && error.status >= 100 && error.status <= 599 ? error.status : null);
     const clientStatus = error instanceof AnalysisServiceError ? error.status : 502;
+    const responseStatus = safeDiagnostics.responseStatus ?? null;
+    const incompleteReason = safeDiagnostics.incompleteReason ?? null;
+    const outputTokens = safeDiagnostics.outputTokens ?? null;
+    const totalTokens = safeDiagnostics.totalTokens ?? null;
 
     // Do not log error.message, stack, headers, API credentials, or request data.
-    console.error(JSON.stringify({
-      event: "analyze_request_failed",
-      requestId: diagnosticRequestId,
-      errorClass,
-      providerHttpStatus: providerStatus,
-      responseHttpStatus: clientStatus,
-      errorCode,
-      requestDurationMs: Date.now() - requestStartedAt
-    }));
+   console.error(JSON.stringify({
+   event: "analyze_request_failed",
+   requestId: diagnosticRequestId,
+   errorClass,
+   providerHttpStatus: providerStatus,
+   responseHttpStatus: clientStatus,
+   errorCode,
+   responseStatus,
+   incompleteReason,
+   outputTokens,
+   totalTokens,
+   requestDurationMs: Date.now() - requestStartedAt
+   }));
 
     if (error instanceof AnalysisServiceError) {
       return response.status(error.status).json({ error: error.publicMessage });
