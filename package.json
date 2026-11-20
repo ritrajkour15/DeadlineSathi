@@ -1,0 +1,19 @@
+{
+  "name": "deadline-sathi",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DeadlineSathi scholarship notice assistant",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "openai": "^7.60.0"
+  }
+}

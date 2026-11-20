@@ -1,0 +1,22 @@
+# Installed packages
+node_modules/
+
+# Local environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Logs, coverage, and build output
+npm-debug.log*
+*.log
+coverage/
+dist/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
