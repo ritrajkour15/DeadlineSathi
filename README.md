@@ -97,12 +97,13 @@ For Windows PowerShell:
 Copy-Item .env.example .env
 ```
 
-Add your OpenAI API key and model configuration to `.env`:
+<CodeBlock language="markdown" editable>
+Add your Gemini API key and model configuration to `.env`:
 
 ```env
 PORT=3000
-OPENAI_API_KEY=your_openai_api_key
-OPENAI_MODEL=your_openai_model
+GEMINI_API_KEY=your_gemini_api_key
+GEMINI_MODEL=gemini-3.8-flash
 ```
 
 Replace the placeholder values with your own configuration.
