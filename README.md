@@ -103,7 +103,7 @@ Add your Gemini API key and model configuration to `.env`:
 ```env
 PORT=3000
 GEMINI_API_KEY=your_gemini_api_key
-GEMINI_MODEL=gemini-3.8-flash
+GEMINI_MODEL=gemini-3.5-flash-lite
 ```
 
 Replace the placeholder values with your own configuration.
