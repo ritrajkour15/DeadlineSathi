@@ -51,8 +51,10 @@ It helps students understand what they need, what they are eligible for, and wha
 - Express.js
 
 **AI Integration**
-- OpenAI API
-- Structured Outputs
+- Google Gemini API
+- Structured Outputs using JSON Schema
+- Server-side AI integration
+- Evidence-based notice analysis
 
 **Development Tools**
 - Visual Studio Code
